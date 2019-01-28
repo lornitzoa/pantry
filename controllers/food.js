@@ -17,6 +17,18 @@ router.get('/:id/edit', (req, res) => {
   })
 })
 
+// get show page
+router.get('/:id/show', (req, res) => {
+  Food.findById(req.params.id, (err, selectedItem) => {
+    res.render(
+      './food_pages/show.ejs',
+      {
+        item: selectedItem,
+      }
+    )
+  })
+})
+
 // get main  page
 router.get('/', (req, res) => {
   Food.find({}, (err, allFood) => {

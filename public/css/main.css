@@ -5,3 +5,9 @@ body {
 .foodSearchModal {
   display: none;
 }
+
+a {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}

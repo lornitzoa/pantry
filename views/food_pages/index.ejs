@@ -14,7 +14,7 @@
           <div class="wrapperDiv">
             <div class="item">
               <button type="button" name="btnEdit" onclick='window.location.href="<%=items[i].id%>/edit"'>Edit</button>
-              <%=items[i].name%>
+              <a href="/<%=items[i].id%>/show"><%=items[i].name%></a>
               <form  action="/<%=items[i].id%>?_method=DELETE" method="post">
                 <input type="submit" name="" value="Delete">
               </form>
