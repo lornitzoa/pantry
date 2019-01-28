@@ -31,18 +31,24 @@ router.get('/:id/show', (req, res) => {
 
 // get main  page
 router.get('/', (req, res) => {
+
   Food.find({}, (err, allFood) => {
     res.render(
       './food_pages/index.ejs',
     {
       items: allFood,
+      user: req.session.currentUser.username
+
     });
   });
 })
 
 // get new page
 router.get('/new', (req, res) => {
-  res.render('./food_pages/new.ejs');
+  res.render(
+    './food_pages/new.ejs',
+
+  );
 })
 
 // create array to push into FODMAPS array of objects to then store in DB.
