@@ -57,9 +57,9 @@ const Seed = require('./controllers/seed.js');
 const foodController = require('./controllers/food.js');
 const seedController = require('./controllers/seed.js');
 
-app.use('/pantry', foodController); // pantry is main foods list page.
+app.use('/main', foodController); // pantry is main foods list page.
 
-app.use('/seed', seedController);
+// app.use('/seed', seedController);
 
 //___________________
 //Listener
