@@ -31,19 +31,6 @@ db.on('open' , ()=>{});
 
 
 //___________________
-//Dependencies
-//___________________
-// const Food = require('./models/food_model.js');
-// const Seed = require('./controllers/seed.js');
-// const foodController = require('./controllers/food.js');
-// const seedController = require('./controllers/seed.js');
-
-// app.use('/pantry', foodController); // pantry is main foods list page.
-//
-//
-// app.use('/seed', seedController);
-
-//___________________
 //Middleware
 //___________________
 
@@ -62,9 +49,17 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 // Routes
 //___________________
 //localhost:3000
-app.get('/' , (req, res) => {
-res.send('Hello World!');
-});
+// app.get('/' , (req, res) => {
+// res.send('Hello World!');
+// });
+const Food = require('./models/food_model.js');
+const Seed = require('./controllers/seed.js');
+const foodController = require('./controllers/food.js');
+const seedController = require('./controllers/seed.js');
+
+app.use('/pantry', foodController); // pantry is main foods list page.
+
+app.use('/seed', seedController);
 
 //___________________
 //Listener
