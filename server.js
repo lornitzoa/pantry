@@ -33,15 +33,15 @@ db.on('open' , ()=>{});
 //___________________
 //Dependencies
 //___________________
-const Food = require('./models/food_model.js');
-const Seed = require('./controllers/seed.js');
-const foodController = require('./controllers/food.js');
-const seedController = require('./controllers/seed.js');
+// const Food = require('./models/food_model.js');
+// const Seed = require('./controllers/seed.js');
+// const foodController = require('./controllers/food.js');
+// const seedController = require('./controllers/seed.js');
 
-app.use('/pantry', foodController); // pantry is main foods list page.
-
-
-app.use('/seed', seedController);
+// app.use('/pantry', foodController); // pantry is main foods list page.
+//
+//
+// app.use('/seed', seedController);
 
 //___________________
 //Middleware
