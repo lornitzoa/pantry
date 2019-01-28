@@ -2,10 +2,12 @@
 <html lang="en" dir="ltr">
   <head>
     <% include ../partials/head.ejs %>
+
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
+    <% include ../partials/nav.ejs %>
     <h1>Edit Item</h1>
     <form class="" action="/<%=item.id%>?_method=PUT" method="post">
       <label for="">Name</label><input type="text" name="name" value="<%=item.name%>"><br/>
