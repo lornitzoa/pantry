@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1>Edit Item</h1>
-    <form class="" action="/pantry/<%=item.id%>?_method=PUT" method="post">
+    <form class="" action="/<%=item.id%>?_method=PUT" method="post">
       <label for="">Name</label><input type="text" name="name" value="<%=item.name%>"><br/>
       <label for="">brand</label><input type="text" name="brand" value="<%=item.brand%>"><br/>
       <label for="">servingSize</label><input type="text" name="servingSize" value="<%=item.servingSize%>"><br/>
