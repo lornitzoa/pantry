@@ -17,7 +17,7 @@ router.get('/:id/edit', (req, res) => {
   })
 })
 
-// get main pantry page
+// get main  page
 router.get('/', (req, res) => {
   Food.find({}, (err, allFood) => {
     res.render(
@@ -38,7 +38,7 @@ router.put('/:id', (req, res) => {
   // need to add fodmaps same as posting
   Food.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedItem) => {
 
-    res.redirect('/pantry')
+    res.redirect('/')
   })
 })
 
@@ -86,13 +86,13 @@ router.post('/', (req, res) => {
   Food.create(req.body, (err, newFood) => {
     console.log('new food: ' + newFood);
 
-    res.redirect('/pantry')
+    res.redirect('/')
   })
 })
 
 router.delete('/:id', (req, res) => {
   Food.findByIdAndRemove(req.params.id, (err, selectedItem) => {
-    res.redirect('/pantry')
+    res.redirect('/')
   })
 })
 
