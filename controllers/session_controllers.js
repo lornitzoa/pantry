@@ -27,6 +27,8 @@ sessions.post('/', (req, res) => {
   })
 })
 
+// saves session user to pass to any template
+// support from https://stackoverflow.com/questions/37183766/how-to-get-the-session-value-in-ejs
 sessions.use((req,res,next) => {
   res.locals.user = req.session.user;
   next()
