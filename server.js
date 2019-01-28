@@ -4,7 +4,7 @@ const app = express();
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 
 const Food = require('./models/food_model.js');
 
@@ -27,5 +27,5 @@ const seedController = require('./controllers/seed.js');
 app.use('/seed', seedController);
 
 app.listen(port, () => {
-  console.log(`Connected to port: ${port}`);
+  console.log(`Connected to port: ${PORT}`);
 })
