@@ -2,7 +2,7 @@
   "name": "nutritioncrud",
   "version": "1.0.0",
   "engines": {
-    "node" : "11.4.0",
+    "node": "11.4.0"
   },
   "description": "",
   "main": "server.js",
