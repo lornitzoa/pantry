@@ -6,11 +6,19 @@ const methodOverride  = require('method-override');
 const mongoose = require ('mongoose');
 const app = express ();
 const db = mongoose.connection;
+const session = require('express-session');
+const bcrypt = require('bcrypt');
 //___________________
 //Port
 //___________________
 // Allow use of Heroku's port or your own local port, depending on the environment
 const PORT = process.env.PORT || 3000;
+
+app.use(session({
+  secret: 'potatohoe',
+  resave: false,
+  saveUninitialized: false
+}))
 
 //___________________
 //Database
@@ -44,6 +52,29 @@ app.use(express.json());// returns middleware that only parses JSON - may or may
 //use method override
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 
+//___________________
+//Configure Sessions
+//___________________
+
+
+app.get('/', (req, res) => {
+  res.render('./food_pages/login.ejs')
+})
+
+app.get('/', (req, res) => {
+  if(req.sessions.currentUser) {
+    res.render('./food_pages/index.ejs')
+  } else {
+    res.redirect('/sessions/newsessions')
+  }
+
+})
+
+const userController = require('./controllers/users_controllers.js');
+app.use('/users', userController)
+
+const sessionController = require('./controllers/session_controllers.js');
+app.use('/sessions', sessionController)
 
 //___________________
 // Routes
@@ -57,7 +88,7 @@ const Seed = require('./controllers/seed.js');
 const foodController = require('./controllers/food.js');
 const seedController = require('./controllers/seed.js');
 
-app.use('/', foodController); // pantry is main foods list page.
+app.use('/pantry', foodController); // pantry is main foods list page.
 
 // app.use('/seed', seedController);
 
