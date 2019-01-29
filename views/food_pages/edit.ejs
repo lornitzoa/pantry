@@ -28,17 +28,19 @@
           <% for (let i = 0; i < fodmaps.length; i++) { %>
             <div class="fodmapDetails">
               <% for(let key in fodmaps[i]) { %>
-                <% if(key == 'servingSizeW' || key == 'servingSizeV') { %>
-                  <input type="text" name="<%=key%>" value="<%=fodmaps[i][key]%>">
-                <% } else { %>
-                  <select class="" name="<%=key%>" selected='<%=fodmaps[i][key]%>'>
-                    <option value=""></option>
-                    <option value="low">Low</option>
-                    <option value="Medium">Medium</option>
-                    <option value="High">High</option>
-                  </select>
-                <% } %>
 
+                <% let servingSizeW = 'servingSizeW' + (i+1).toString() %>
+                <% let servingSizeV = 'servingSizeV' + (i+1).toString() %>
+                <% if(key === servingSizeW || key === servingSizeV) { %>
+                  <input type="text" name="<%=key%>" value="<%=fodmaps[i][key]%>">
+                  <% } else { %>
+                    <select class="" name="<%=key%>" selected='<%=fodmaps[i][key]%>'>
+                      <option value=""></option>
+                      <option value="low">Low</option>
+                      <option value="Medium">Medium</option>
+                      <option value="High">High</option>
+                    </select>
+                <% } %>
               <% } %>
             </div>
           <% } %>

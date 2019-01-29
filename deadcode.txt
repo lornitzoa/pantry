@@ -109,3 +109,12 @@
       </div>
 
   <% } %>
+
+  else { %>
+    <select class="" name="<%=key%>" selected='<%=fodmaps[i][key]%>'>
+      <option value=""></option>
+      <option value="low">Low</option>
+      <option value="Medium">Medium</option>
+      <option value="High">High</option>
+    </select>
+<% } %>
