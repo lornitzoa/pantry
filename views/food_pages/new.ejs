@@ -12,101 +12,113 @@
     <form action="/pantry" method="POST">
       <h2>Basic Nutritional Info</h2>
       <div class="inputs">
-        <input type="text" name="name"  class="name"/><br/>
-        <input type="text" name="brand"  class="brand"/><br/>
-        <input type="text" name="servingSizeQty"  class="servingSizeQty"/><br/>
-        <input type="text" name="servingSizeUn"  class="servingSizeUn"/><br/>
-        <input type="text" name="servingWeight"  class="servingWeight"/><br/>
-        <input type="text" name="calories"  class="calories"/><br/>
-        <input type="text" name="fat"  class="fat"/><br/>
-        <input type="text" name="carbs"  class="carbs"/><br/>
-        <input type="text" name="fiber"  class="fiber"/><br/>
-        <input type="text" name="sugar"  class="sugar"/><br/>
-        <input type="text" name="protein"  class="protein"/><br/>
+        <div class="mainDetails">
+          <h5 for="">Name</h5><input type="text" name="name"  class="name"/><br/>
+          <h5 for="">Brand</h5><input type="text" name="brand"  class="brand"/><br/>
+          <h5 for="">Serving Size</h5><input type="text" name="servingSizeQty"  class="servingSizeQty serving"/>
+            <input type="text" name="servingSizeUn"  class="servingSizeUn serving"/><br/>
+          <h5 for="">Servign Weight (grams)</h5><input type="text" name="servingWeight"  class="servingWeight"/><br/>
+          <h5 for="">Calories</h5><input type="text" name="calories"  class="calories"/><br/>
+          <h5 for="">Fat</h5><input type="text" name="fat"  class="fat"/><br/>
+          <h5 for="">Carbs</h5><input type="text" name="carbs"  class="carbs"/><br/>
+          <h5 for="">Fiber</h5><input type="text" name="fiber"  class="fiber"/><br/>
+          <h5 for="">Sugar</h5><input type="text" name="sugar"  class="sugar"/><br/>
+          <h5 for="">Protein</h5><input type="text" name="protein"  class="protein"/><br/>
+        </div>
         <h2>FODMAP Data</h2>
-        <div class="fodmapDetails">
-          <input type="text" name="servingSizeW1" value="" ><br/>
-          <input type="text" name="servingSizeV1" value="" ><br/>
-          <select class="" name="oligos1">
-            <option value=""></option>
-            <option value="low">Low</option>
-            <option value="Medium">Medium</option>
-            <option value="High">High</option>
-          </select>
-          <select class="" name="fructos1">
-            <option value=""></option>
-            <option value="low">Low</option>
-            <option value="Medium">Medium</option>
-            <option value="High">High</option>
-          </select>
-          <select class="" name="polyols1">
-            <option value=""></option>
-            <option value="low">Low</option>
-            <option value="Medium">Medium</option>
-            <option value="High">High</option>
-          </select>
-          <select class="" name="lactos1">
-            <option value=""></option>
-            <option value="low">Low</option>
-            <option value="Medium">Medium</option>
-            <option value="High">High</option>
-          </select>
-        </div>
-        <div class="fodmapDetails">
-          <input type="text" name="servingSizeW2" value="" ><br/>
-          <input type="text" name="servingSizeV2" value="" ><br/>
-          <select class="" name="oligos2">
-            <option value=""></option>
-            <option value="low">Low</option>
-            <option value="Medium">Medium</option>
-            <option value="High">High</option>
-          </select>
-          <select class="" name="fructos2">
-            <option value=""></option>
-            <option value="low">Low</option>
-            <option value="Medium">Medium</option>
-            <option value="High">High</option>
-          </select>
-          <select class="" name="polyols2">
-            <option value=""></option>
-            <option value="low">Low</option>
-            <option value="Medium">Medium</option>
-            <option value="High">High</option>
-          </select>
-          <select class="" name="lactos2">
-            <option value=""></option>
-            <option value="low">Low</option>
-            <option value="Medium">Medium</option>
-            <option value="High">High</option>
-          </select>
-        </div>
-        <div class="fodmapDetails">
-          <input type="text" name="servingSizeW3" value="" ><br/>
-          <input type="text" name="servingSizeV3" value="" ><br/>
-          <select class="" name="oligos3">
-            <option value=""></option>
-            <option value="low">Low</option>
-            <option value="Medium">Medium</option>
-            <option value="High">High</option>
-          </select>
-          <select class="" name="fructos3">
-            <option value=""></option>
-            <option value="low">Low</option>
-            <option value="Medium">Medium</option>
-            <option value="High">High</option>
-          </select>
-          <select class="" name="polyols3">
-            <option value=""></option>
-            <option value="low">Low</option>
-            <option value="Medium">Medium</option>
-            <option value="High">High</option>
-          </select>
-          <select class="" name="lactos3">
-            <option value=""></option>
-            <option value="low">Low</option>
-            <option value="Medium">Medium</option>
-            <option value="High">High</option>
-          </select>
+        <div class="fodmapContainer">
+          <div class="fodmapDetails">
+            <h4 class="fodmapInput fmpUnits fmpHeaders">Serving Size Weight</h4>
+            <h4 class="fodmapInput fmpUnits fmpHeaders">Serving Size Volume</h4>
+            <h4 class="fodmapInput fmpType fmpHeaders" >Oligos</h4>
+            <h4 class="fodmapInput fmpType fmpHeaders">Fructos</h4>
+            <h4 class="fodmapInput fmpType fmpHeaders">Polyols</h4>
+            <h4 class="fodmapInput fmpType fmpHeaders">Lactos</h4>
+          </div>
+          <div class="fodmapDetails">
+            <input type="text" name="servingSizeW1" value="" class="fodmapInput fmpUnits"><br/>
+            <input type="text" name="servingSizeV1" value="" class="fodmapInput fmpUnits"><br/>
+            <select class="fodmapInput fmpType" name="oligos1">
+              <option value=""></option>
+              <option value="low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+            <select class="fodmapInput fmpType" name="fructos1">
+              <option value=""></option>
+              <option value="low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+            <select class="fodmapInput fmpType" name="polyols1">
+              <option value=""></option>
+              <option value="low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+            <select class="fodmapInput fmpType" name="lactos1">
+              <option value=""></option>
+              <option value="low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+          </div>
+          <div class="fodmapDetails">
+            <input type="text" name="servingSizeW2" value="" class="fodmapInput fmpUnits"><br/>
+            <input type="text" name="servingSizeV2" value="" class="fodmapInput fmpUnits"><br/>
+            <select class="fodmapInput fmpType" name="oligos2">
+              <option value=""></option>
+              <option value="low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+            <select class="fodmapInput fmpType" name="fructos2">
+              <option value=""></option>
+              <option value="low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+            <select class="fodmapInput fmpType" name="polyols2">
+              <option value=""></option>
+              <option value="low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+            <select class="fodmapInput fmpType" name="lactos2">
+              <option value=""></option>
+              <option value="low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+          </div>
+          <div class="fodmapDetails">
+            <input type="text" name="servingSizeW3" value="" class="fodmapInput fmpUnits"><br/>
+            <input type="text" name="servingSizeV3" value="" class="fodmapInput fmpUnits"><br/>
+            <select class="fodmapInput fmpType" name="oligos3">
+              <option value=""></option>
+              <option value="low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+            <select class="fodmapInput fmpType" name="fructos3">
+              <option value=""></option>
+              <option value="low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+            <select class="fodmapInput fmpType" name="polyols3">
+              <option value=""></option>
+              <option value="low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+            <select class="fodmapInput fmpType" name="lactos3">
+              <option value=""></option>
+              <option value="low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+          </div>
         </div>
       </div>
       <input type="submit" value="Submit">

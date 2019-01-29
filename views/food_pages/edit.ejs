@@ -10,31 +10,41 @@
     <% include ../partials/nav.ejs %>
     <h1>Edit Item</h1>
     <form class="" action="/pantry/<%=item.id%>?_method=PUT" method="post">
-      <label for="">Name</label><input type="text" name="name" value="<%=item.name%>"><br/>
-      <label for="">brand</label><input type="text" name="brand" value="<%=item.brand%>"><br/>
-      <label for="">Serving Size:</label><input type="text" name="servingSizeQty" value="<%=item.servingSizeQty%>">
-        <input type="text" name="servingSizeUn" value="<%=item.servingSizeUn%>"><br/>
-      <label for="">servingSize</label><input type="text" name="servingWeight" value="<%=item.servingWeight%>"><br/>
-      <label for="">calories</label><input type="text" name="calories" value="<%=item.calories%>"><br/>
-      <label for="">fat</label><input type="text" name="fat" value="<%=item.fat%>"><br/>
-      <label for="">totalCarbs</label><input type="text" name="carbs" value="<%=item.totalCarbs%>"><br/>
-      <label for="">dietaryFiber</label><input type="text" name="fiber" value="<%=item.fiber%>"><br/>
-      <label for="">sugars</label><input type="text" name="sugars" value="<%=item.sugars%>"><br/>
-      <label for="">protein</label><input type="text" name="protein" value="<%=item.protein%>"><br/>
-      <div class="fodmaps-container">
-        <label for="">FODMAPS</label><br/>
+      <div class="mainDetails">
+        <h5 for="">Name</h5><input type="text" name="name" value="<%=item.name%>"><br/>
+        <h5 for="">Brand</h5><input type="text" name="brand" value="<%=item.brand%>"><br/>
+        <h5 for="">Serving Size</h5><input type="text" name="servingSizeQty" value="<%=item.servingSizeQty%>" class="servingSizeQty serving">
+          <input type="text" name="servingSizeUn" value="<%=item.servingSizeUn%>" class="servingSizeQty serving"><br/>
+        <h5 for="">Servign Weight (grams)</h5><input type="text" name="servingWeight" value="<%=item.servingWeight%>"><br/>
+        <h5 for="">Calories</h5><input type="text" name="calories" value="<%=item.calories%>"><br/>
+        <h5 for="">Fat</h5><input type="text" name="fat" value="<%=item.fat%>"><br/>
+        <h5 for="">Carbs</h5><input type="text" name="carbs" value="<%=item.totalCarbs%>"><br/>
+        <h5 for="">Fiber</h5><input type="text" name="fiber" value="<%=item.fiber%>"><br/>
+        <h5 for="">Sugar</h5><input type="text" name="sugars" value="<%=item.sugars%>"><br/>
+        <h5 for="">Protein</h5><input type="text" name="protein" value="<%=item.protein%>"><br/>
+      </div>
+      <h2>FODMAP Data</h2>
         <div class="fodmapsContainer">
+          <div class="fodmapDetails">
+            <h4 class="fodmapInput fmpUnits fmpHeaders">Serving Size Weight</h4>
+            <h4 class="fodmapInput fmpUnits fmpHeaders">Serving Size Volume</h4>
+            <h4 class="fodmapInput fmpType fmpHeaders" >Oligos</h4>
+            <h4 class="fodmapInput fmpType fmpHeaders">Fructos</h4>
+            <h4 class="fodmapInput fmpType fmpHeaders">Polyols</h4>
+            <h4 class="fodmapInput fmpType fmpHeaders">Lactos</h4>
+          </div>
           <% let fodmaps = item.fodmaps %>
           <% for (let i = 0; i < fodmaps.length; i++) { %>
             <div class="fodmapDetails">
+
               <% for(let key in fodmaps[i]) { %>
 
                 <% let servingSizeW = 'servingSizeW' + (i+1).toString() %>
                 <% let servingSizeV = 'servingSizeV' + (i+1).toString() %>
                 <% if(key === servingSizeW || key === servingSizeV) { %>
-                  <input type="text" name="<%=key%>" value="<%=fodmaps[i][key]%>">
+                  <input type="text" name="<%=key%>" value="<%=fodmaps[i][key]%>" class="fodmapInput  fmpUnits">
                   <% } else { %>
-                    <select class="" name="<%=key%>" selected='<%=fodmaps[i][key]%>'>
+                    <select  name="<%=key%>" selected='<%=fodmaps[i][key]%>' class="fodmapInput fmpType">
                       <option value=""></option>
                       <option value="low">Low</option>
                       <option value="Medium">Medium</option>

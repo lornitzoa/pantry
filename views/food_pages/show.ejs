@@ -8,16 +8,29 @@
   <body>
     <% include ../partials/nav.ejs %>
     <h1><%=item.name%></h1>
-    <label for=""><%=item.brand%></label>
-    <label for=""><%=item.servingSize%></label>
-    <label for=""><%=item.calories%></label>
-    <label for=""><%=item.fat%></label>
-    <label for=""><%=item.carbs%></label>
-    <label for=""><%=item.fiber%></label>
-    <label for=""><%=item.sugars%></label>
-    <label for=""><%=item.protein%></label>
+    <div class="mainDetails">
+      <h5 for="">Name</h5><lable><%=item.name%></label><br/>
+      <h5 for="">Brand</h5><lable><%=item.brand%></label><br/>
+      <h5 for="">Serving Size</h5><lable class="servingSizeQty serving"><%=item.servingSizeQty%></label>
+        <lable class="servingSizeQty serving"><%=item.servingSizeUn%></label><br/>
+      <h5 for="">Servign Weight (grams)</h5><lable type="text" name="servingWeight" value=""><%=item.servingWeight%></label><br/>
+      <h5 for="">Calories</h5><lable><%=item.calories%></label><br/>
+      <h5 for="">Fat</h5><lable><%=item.fat%></label><br/>
+      <h5 for="">Carbs</h5><lable><%=item.totalCarbs%></label><br/>
+      <h5 for="">Fiber</h5><lable><%=item.fiber%></label><br/>
+      <h5 for="">Sugar</h5><lable><%=item.sugars%></label><br/>
+      <h5 for="">Protein</h5><lable><%=item.protein%></label><br/>
+    </div>
     <h2>FODMAPs</h2>
     <div class="fodmapsContainer">
+      <div class="fodmapDetails">
+        <h4 class="fodmapInput fmpUnits fmpHeaders">Serving Size Weight</h4>
+        <h4 class="fodmapInput fmpUnits fmpHeaders">Serving Size Volume</h4>
+        <h4 class="fodmapInput fmpType fmpHeaders" >Oligos</h4>
+        <h4 class="fodmapInput fmpType fmpHeaders">Fructos</h4>
+        <h4 class="fodmapInput fmpType fmpHeaders">Polyols</h4>
+        <h4 class="fodmapInput fmpType fmpHeaders">Lactos</h4>
+      </div>
       <% let fodmaps = item.fodmaps %>
       <% for (let i = 0; i < fodmaps.length; i++) { %>
         <div class="fodmapDetails">
