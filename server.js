@@ -59,14 +59,14 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 //___________________
 
 
-// app.get('/', (req, res) => {
-//   res.render(
-//     './food_pages/login.ejs',
-//     {
-//       user: req.session.currentUser.username
-//     }
-//   )
-// })
+app.get('/', (req, res) => {
+  res.render(
+    './food_pages/login.ejs',
+    {
+      user: req.session.currentUser.username
+    }
+  )
+})
 
 
 // const userController = require('./controllers/users_controllers.js');
