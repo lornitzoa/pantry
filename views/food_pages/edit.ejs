@@ -12,7 +12,9 @@
     <form class="" action="/pantry/<%=item.id%>?_method=PUT" method="post">
       <label for="">Name</label><input type="text" name="name" value="<%=item.name%>"><br/>
       <label for="">brand</label><input type="text" name="brand" value="<%=item.brand%>"><br/>
-      <label for="">servingSize</label><input type="text" name="servingSize" value="<%=item.servingSize%>"><br/>
+      <label for="">Serving Size:</label><input type="text" name="servingSizeQty" value="<%=item.servingSizeQty%>">
+        <input type="text" name="servingSizeUn" value="<%=item.servingSizeUn%>"><br/>
+      <label for="">servingSize</label><input type="text" name="servingWeight" value="<%=item.servingWeight%>"><br/>
       <label for="">calories</label><input type="text" name="calories" value="<%=item.calories%>"><br/>
       <label for="">fat</label><input type="text" name="fat" value="<%=item.fat%>"><br/>
       <label for="">totalCarbs</label><input type="text" name="carbs" value="<%=item.totalCarbs%>"><br/>

@@ -8,3 +8,4 @@ For this Unit 2 project I was required to build a complete CRUD app and use all 
 ## Resources:
 - save session user as variable to send to all templates: https://stackoverflow.com/questions/37183766/how-to-get-the-session-value-in-ejs
 - I relied heavily on the markdowns from w06d04, w06d05, w07d01 instructor notes to get login, routes and heroku connection setup.
+- Karolin Rafalski supported me in finding resources to save session data to mongoDB with this link: https://www.npmjs.com/package/connect-mongodb-session

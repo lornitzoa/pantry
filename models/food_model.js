@@ -5,7 +5,9 @@ const foodSchema = new mongoose.Schema(
   {
     name: String,
     brand: String,
-    servingSize: String,
+    servingSizeQty: String,
+    servingSizeUn: String,
+    servingWeight: String,
     calories: String,
     fat: String,
     carbs: String,

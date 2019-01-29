@@ -67,12 +67,12 @@ $(() => {
     $.ajax(
       {
       method: "GET",
-       url: `https://api.nutritionix.com/v1_1/search/${searchItem}?results=0%3A20&cal_min=0&cal_max=50000&fields=item_name%2Cbrand_name%2Cnf_calories%2Cnf_protein%2Cnf_total_carbohydrate%2Cnf_total_fat%2Cnf_dietary_fiber%2Cnf_sugars&appId=de92457e&appKey=96aacdbf1c85e953bb7e7e62a56e0cae`,
+       url: `https://api.nutritionix.com/v1_1/search/${searchItem}?results=0%3A20&cal_min=0&cal_max=50000&fields=item_name%2Cbrand_name%2Cnf_serving_size_qty%2Cnf_serving_size_unit%2Cnf_serving_weight_grams%2Cnf_calories%2Cnf_protein%2Cnf_total_carbohydrate%2Cnf_total_fat%2Cnf_dietary_fiber%2Cnf_sugars&appId=de92457e&appKey=96aacdbf1c85e953bb7e7e62a56e0cae`,
        datatype : 'application/json',
       }
     ).then(
       (data) => {
-        // console.log(data);
+        console.log(data);
         for(let i = 0; i < data.hits.length; i++) {
 
           let $itemWrapper = $('<div>').addClass('wrapperDiv');
@@ -81,6 +81,9 @@ $(() => {
           // let $ddNutrientDiv = $('<div>').addClass('nutrientDiv');
           let $ddItemName = $('<dd>').text(data.hits[i].fields.item_name).addClass('name');
           let $ddBrand = $('<dd>').text(data.hits[i].fields.brand_name).addClass('brand');
+          let $ddServQty = $('<dd>').text(data.hits[i].fields.nf_serving_size_qty).addClass('servingSizeQty');
+          let $ddServUn = $('<dd>').text(data.hits[i].fields.nf_serving_size_unit).addClass('servingSizeUn');
+          let $ddServGram = $('<dd>').text(data.hits[i].fields.nf_serving_weight_grams).addClass('servingWeight');
           let $ddTotCal = $('<dd>').text(data.hits[i].fields.nf_calories).addClass('calories');
           let $ddProtien = $('<dd>').text(data.hits[i].fields.nf_protein).addClass('protein');
           let $ddCarbs = $('<dd>').text(data.hits[i].fields.nf_total_carbohydrate).addClass('carbs');
@@ -91,6 +94,9 @@ $(() => {
 
           $($ddItemDiv).append($ddItemName);
           $($ddItemDiv).append($ddBrand);
+          $($ddItemDiv).append($ddServQty);
+          $($ddItemDiv).append($ddServUn);
+          $($ddItemDiv).append($ddServGram);
           $($ddItemDiv).append($ddTotCal);
           $($ddItemDiv).append($ddProtien);
           $($ddItemDiv).append($ddCarbs);
