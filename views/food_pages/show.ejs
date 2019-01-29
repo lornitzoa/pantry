@@ -16,11 +16,17 @@
     <label for=""><%=item.fiber%></label>
     <label for=""><%=item.sugars%></label>
     <label for=""><%=item.protein%></label>
-    <% let fodmaps = item.fodmaps %>
-    <% for (let i = 0; i < fodmaps.length; i++) { %>
-      <% for(let key in fodmaps[i]) { %>
-        <label for=""><%=fodmaps[i][key]%></label>
+    <h2>FODMAPs</h2>
+    <div class="fodmapsContainer">
+      <% let fodmaps = item.fodmaps %>
+      <% for (let i = 0; i < fodmaps.length; i++) { %>
+        <div class="fodmapDetails">
+          <% for(let key in fodmaps[i]) { %>
+            <label for=""><%=fodmaps[i][key]%></label>
+          <% } %>
+        </div>
       <% } %>
-    <% } %>
+    </div>
+
   </body>
 </html>

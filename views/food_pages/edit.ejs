@@ -23,22 +23,26 @@
       <label for="">protein</label><input type="text" name="protein" value="<%=item.protein%>"><br/>
       <div class="fodmaps-container">
         <label for="">FODMAPS</label><br/>
-        <div class="">
-          <label for="">Servering Size (weight)</label>
-          <label for="">Serving Size (volume)</label>
-          <label for="">Oligos</label>
-          <label for="">Fructos</label>
-          <label for="">polyols</label>
-          <label for="">Lactos</label>
-        </div>
-        <% let fodmaps = item.fodmaps %>
-        <% for (let i = 0; i < fodmaps.length; i++) { %>
-          <% for(let key in fodmaps[i]) { %>
-            <input type="text" name="<%=key%>" value="<%=fodmaps[i][key]%>">
+        <div class="fodmapsContainer">
+          <% let fodmaps = item.fodmaps %>
+          <% for (let i = 0; i < fodmaps.length; i++) { %>
+            <div class="fodmapDetails">
+              <% for(let key in fodmaps[i]) { %>
+                <% if(key == 'servingSizeW' || key == 'servingSizeV') { %>
+                  <input type="text" name="<%=key%>" value="<%=fodmaps[i][key]%>">
+                <% } else { %>
+                  <select class="" name="<%=key%>" selected='<%=fodmaps[i][key]%>'>
+                    <option value=""></option>
+                    <option value="low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                  </select>
+                <% } %>
+
+              <% } %>
+            </div>
           <% } %>
-        <% } %>
         </div>
-      </div>
       <input type="submit" value="Submit Changes">
     </form>
   </body>
