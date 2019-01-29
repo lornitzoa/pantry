@@ -5,60 +5,6 @@ const Food = require('../models/food_model.js');
 
 router.use(express.static('public'));
 
-// get edit page
-router.get('/:id/edit', (req, res) => {
-  Food.findById(req.params.id, (err, selectedItem) => {
-    res.render(
-      './food_pages/edit.ejs',
-      {
-        item: selectedItem,
-        // user: req.session.currentUser.username
-      }
-    )
-  })
-})
-
-// get show page
-router.get('/:id/show', (req, res) => {
-  Food.findById(req.params.id, (err, selectedItem) => {
-    res.render(
-      './food_pages/show.ejs',
-      {
-        item: selectedItem,
-        // user: req.session.currentUser.username
-      }
-    )
-  })
-})
-
-// get main  page
-router.get('/', (req, res) => {
-  // if(req.session.currentUser) {
-    Food.find({}, (err, allFood) => {
-      res.render(
-        './food_pages/index.ejs',
-      {
-        items: allFood,
-        // user: req.session.currentUser.username
-
-      });
-    });
-  // } else {
-  //   res.redirect('/sessions/newsessions')
-  // }
-
-})
-
-// get new page
-router.get('/new', (req, res) => {
-  res.render(
-    './food_pages/new.ejs',
-    {
-      // user: req.session.currentUser.username
-    }
-  );
-})
-
 // create array to push into FODMAPS array of objects to then store in DB.
 const makeFodMapsArr = (item) => {
   // declare empty array for pushing fodmap objects into
@@ -95,14 +41,15 @@ const makeFodMapsArr = (item) => {
   }
   fodMapsARR.push(fodmapObj3);
   // return the array for the put or post methods to add to their req.body
-  return fodMapsARR
+  console.log(fodMapsARR);
 }
 
 // create item
 router.post('/', (req, res) => {
   req.body.fodmaps = makeFodMapsArr(req.body)
   Food.create(req.body, (err, newFood) => {
-    res.redirect('/')
+
+    res.redirect('/pantry')
   })
 })
 
@@ -111,15 +58,64 @@ router.put('/:id', (req, res) => {
   // send req.body to make fodmaps arry and then assign to req.body.fodmaps
   req.body.fodmaps = makeFodMapsArr(req.body)
   Food.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedItem) => {
-    res.redirect('/')
+    res.redirect('/pantry')
   })
 })
 
 // delete item
 router.delete('/:id', (req, res) => {
   Food.findByIdAndRemove(req.params.id, (err, selectedItem) => {
-    res.redirect('/')
+    res.redirect('/pantry')
   })
 })
+
+
+// get edit page
+router.get('/:id/edit', (req, res) => {
+  Food.findById(req.params.id, (err, selectedItem) => {
+    res.render(
+      './food_pages/edit.ejs',
+      {
+        item: selectedItem,
+        // user: req.session.currentUser.username
+      }
+    )
+  })
+})
+
+// get show page
+router.get('/:id/show', (req, res) => {
+  Food.findById(req.params.id, (err, selectedItem) => {
+    res.render(
+      './food_pages/show.ejs',
+      {
+        item: selectedItem,
+        // user: req.session.currentUser.username
+      }
+    )
+  })
+})
+
+// get main  page
+router.get('/', (req, res) => {
+  // if(req.session.currentUser) {
+    Food.find({}, (err, allFood) => {
+      res.render(
+        './food_pages/index.ejs',
+      {
+        items: allFood,
+      });
+    });
+
+})
+
+// get new page
+router.get('/new', (req, res) => {
+  res.render(
+    './food_pages/new.ejs'
+  );
+})
+
+
 
 module.exports = router;

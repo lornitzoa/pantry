@@ -61,7 +61,7 @@ $(() => {
  $('#btnCloseSearchModal').on('click', closeFoodSearchModal);
 
   // entire form on submit event listener taken from my unit 1 nutrition app
-  $('form').on('submit', (e) => {
+  $('#searchItems').on('submit', (e) => {
     e.preventDefault();
     let searchItem = $('input[type=text]').val();
     $.ajax(

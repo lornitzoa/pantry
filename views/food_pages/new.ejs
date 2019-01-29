@@ -9,7 +9,7 @@
     <% include ../partials/nav.ejs %>
     <h1>Add Food Item</h1>
     <button type="button" class='btnAddFromAPI'>Search API for food</button>
-    <form action="/" method="POST">
+    <form action="/pantry" method="POST">
       <h2>Basic Nutritional Info</h2>
       <div class="inputs">
         <input type="text" name="name"  class="name"/><br/>
@@ -47,12 +47,11 @@
           <input type="text" name="lactos3" value="" ><br/>
         </div>
       </div>
-
-      <input type="submit" name="" value="Submit">
+      <input type="submit" value="Submit">
     </form>
     <div class="foodSearchModal">
       <div class="foodSearchBoxArea">
-        <form class="foodSearch" action="index.html" method="post">
+        <form class="foodSearch"  id='searchItems'>
           <input type="text" placeholder="Search foods">
           <input type="submit" value='Search'>
           <button type="button" id='btnCloseSearchModal'>Close</button>

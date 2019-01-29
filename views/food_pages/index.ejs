@@ -15,9 +15,9 @@
       <% for(let i = 0; i < items.length; i++) { %>
           <div class="wrapperDiv">
             <div class="item">
-              <button type="button" name="btnEdit" onclick='window.location.href="/<%=items[i].id%>/edit"'>Edit</button>
+              <button type="button" name="btnEdit" onclick='window.location.href="/pantry/<%=items[i].id%>/edit"'>Edit</button>
               <a href="/pantry/<%=items[i].id%>/show"><%=items[i].name%></a>
-              <form  action="/<%=items[i].id%>?_method=DELETE" method="post">
+              <form  action="./<%=items[i].id%>?_method=DELETE" method="POST">
                 <input type="submit" name="" value="Delete">
               </form>
             </div>
