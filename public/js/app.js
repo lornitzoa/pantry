@@ -3,8 +3,6 @@ $(() => {
 
   const openFoodSearchModal = (e) => {
    $('.foodSearchModal').css('display', 'block');
-   $eCousin = $(e.target).parent().siblings().eq(0);
-   $eCousinTotalsDiv = $(e.target).parent().siblings().eq(1).children().eq(1);
 
  }
 
@@ -15,50 +13,25 @@ $(() => {
 
   const addToDB = (e) => {
     let $info = $(e.target).siblings().eq(0).children()
-    console.log($info);
+    // addToInputs()
+    for(let i = 0; i < $info.length; i++) {
+      let detail = $($info[i])
+      addToInputs(detail)
+    }
   }
-  //   let fodmaps = [{
-  //     servingSizeW1: 'test',
-  //     servingSizeV1: 'test',
-  //     oligos1: '',
-  //     fructos1: '',
-  //     polyols1: '',
-  //     lactos1: '',
-  //   },
-  //   {
-  //     servingSizeW2: '',
-  //     servingSizeV2: '',
-  //     oligos2: '',
-  //     fructos2: '',
-  //     polyols2: '',
-  //     lactos2: '',
-  //   },
-  //   {
-  //     servingSizeW3: '',
-  //     servingSizeV3: '',
-  //     oligos3: '',
-  //     fructos3: '',
-  //     polyols3: '',
-  //     lactos3: '',
-  //   }
-  // ];
 
-    // let myJSON = JSON.stringify(fodmaps)
-    //
-    // jQuery.post('/pantry', {
-    //   name: $($info[0]).text(),
-    //   brand: $($info[0]).text(),
-    //   servingSize: '1',
-    //   calories: $($info[1]).text(),
-    //   totalFat: $($info[4]).text(),
-    //   totalCarbs: $($info[3]).text(),
-    //   dietaryFiber: $($info[5]).text(),
-    //   sugars: $($info[6]).text(),
-    //   protein: $($info[2]).text(),
-    //   fodmaps: myJSON
-    //
-    //   })
-    // }
+  const addToInputs = (detail) => {
+    let inputs = $('.inputs').children()
+    for(let i = 0; i < inputs.length; i++) {
+      // console.log($(inputs[i]).attr('class'));
+      // console.log('input form: ' + $(inputs[i]).attr('class'));
+      // console.log(('selected item: ' + $(detail).attr('class')));
+      if ($(inputs[i]).attr('class') === $(detail).attr('class')) {
+        $(inputs[i]).val($(detail).text());
+      }
+    }
+
+  }
 
 
  $('.fodmapInput').change((e) => {
@@ -106,17 +79,18 @@ $(() => {
           let $btnAddItem = $('<button>').text('+');
           let $ddItemDiv = $('<div>').addClass('itemDiv');
           // let $ddNutrientDiv = $('<div>').addClass('nutrientDiv');
-          let $ddItemName = $('<dd>').text(data.hits[i].fields.item_name).addClass('item');
-          let $ddTotCal = $('<dd>').text(data.hits[i].fields.nf_calories).addClass('totalCal').addClass('nutrient');
-          let $ddProtien = $('<dd>').text(data.hits[i].fields.nf_protein).addClass('protein').addClass('nutrient');
-          let $ddCarbs = $('<dd>').text(data.hits[i].fields.nf_total_carbohydrate).addClass('carbs').addClass('nutrient');
-          let $ddFat = $('<dd>').text(data.hits[i].fields.nf_total_fat).addClass('fat').addClass('nutrient');
-          let $ddFiber = $('<dd>').text(data.hits[i].fields.nf_dietary_fiber).addClass('fiber').addClass('nutrient');
-          let $ddSugars = $('<dd>').text(data.hits[i].fields.nf_sugars).addClass('sugar').addClass('nutrient');
-          let $ddBrand = ' - ' + data.hits[i].fields.brand_name;
+          let $ddItemName = $('<dd>').text(data.hits[i].fields.item_name).addClass('name');
+          let $ddBrand = $('<dd>').text(data.hits[i].fields.brand_name).addClass('brand');
+          let $ddTotCal = $('<dd>').text(data.hits[i].fields.nf_calories).addClass('calories');
+          let $ddProtien = $('<dd>').text(data.hits[i].fields.nf_protein).addClass('protein');
+          let $ddCarbs = $('<dd>').text(data.hits[i].fields.nf_total_carbohydrate).addClass('carbs');
+          let $ddFat = $('<dd>').text(data.hits[i].fields.nf_total_fat).addClass('fat');
+          let $ddFiber = $('<dd>').text(data.hits[i].fields.nf_dietary_fiber).addClass('fiber');
+          let $ddSugars = $('<dd>').text(data.hits[i].fields.nf_sugars).addClass('sugar');
+
 
           $($ddItemDiv).append($ddItemName);
-          $($ddItemName).append($ddBrand);
+          $($ddItemDiv).append($ddBrand);
           $($ddItemDiv).append($ddTotCal);
           $($ddItemDiv).append($ddProtien);
           $($ddItemDiv).append($ddCarbs);

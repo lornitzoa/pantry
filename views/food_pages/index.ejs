@@ -9,14 +9,14 @@
     <% include ../partials/nav.ejs %>
     <h1>Welcome </h1>
     <h1>Pantry</h1>
-    <button type="button" name="btnAddManually" onclick='window.location.href="/new"' >Add Item Manually</button>
+    <button type="button" name="btnAddManually" onclick='window.location.href="/pantry/new"' >Add Item Manually</button>
     <button type="button" class='btnAddFromAPI'>Search API for food</button>
     <div class="itemsList">
       <% for(let i = 0; i < items.length; i++) { %>
           <div class="wrapperDiv">
             <div class="item">
-              <button type="button" name="btnEdit" onclick='window.location.href="<%=items[i].id%>/edit"'>Edit</button>
-              <a href="/<%=items[i].id%>/show"><%=items[i].name%></a>
+              <button type="button" name="btnEdit" onclick='window.location.href="/<%=items[i].id%>/edit"'>Edit</button>
+              <a href="/pantry/<%=items[i].id%>/show"><%=items[i].name%></a>
               <form  action="/<%=items[i].id%>?_method=DELETE" method="post">
                 <input type="submit" name="" value="Delete">
               </form>

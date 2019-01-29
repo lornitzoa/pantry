@@ -12,6 +12,7 @@ router.get('/:id/edit', (req, res) => {
       './food_pages/edit.ejs',
       {
         item: selectedItem,
+        // user: req.session.currentUser.username
       }
     )
   })
@@ -24,6 +25,7 @@ router.get('/:id/show', (req, res) => {
       './food_pages/show.ejs',
       {
         item: selectedItem,
+        // user: req.session.currentUser.username
       }
     )
   })
@@ -31,23 +33,29 @@ router.get('/:id/show', (req, res) => {
 
 // get main  page
 router.get('/', (req, res) => {
+  // if(req.session.currentUser) {
+    Food.find({}, (err, allFood) => {
+      res.render(
+        './food_pages/index.ejs',
+      {
+        items: allFood,
+        // user: req.session.currentUser.username
 
-  Food.find({}, (err, allFood) => {
-    res.render(
-      './food_pages/index.ejs',
-    {
-      items: allFood,
-      user: req.session.currentUser.username
-
+      });
     });
-  });
+  // } else {
+  //   res.redirect('/sessions/newsessions')
+  // }
+
 })
 
 // get new page
 router.get('/new', (req, res) => {
   res.render(
     './food_pages/new.ejs',
-
+    {
+      // user: req.session.currentUser.username
+    }
   );
 })
 
