@@ -60,12 +60,13 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 
 
 app.get('/', (req, res) => {
-  res.render(
-    './food_pages/login.ejs',
-    {
-      user: req.session.currentUser.username
-    }
-  )
+  res.send('hi')
+  // res.render(
+  //   './food_pages/login.ejs',
+  //   {
+  //     user: req.session.currentUser.username
+  //   }
+  // )
 })
 
 
