@@ -1,10 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=KoHo|Merienda|Nunito|Quicksand');
 
+/* Variables */
+:root {
+  --soft-purple: rgba(167, 127, 195, 0.79);
+  --blue: rgba(11, 54, 210, 0.69);
+  --teal: rgba(130,201,201,.8);
+  --soft-orange: rgba(255,255,255,.5);
+}
 
 /* shared styles */
 body {
-    background-color: rgba(11, 54, 210, 0.69);
+    background-color: var(--blue);
+    font-family: 'Merienda';
+    color: white;
 }
 
+/* Welcome Page */
+
+.welcomeContainer, .accesContainer {
+  width: 500px;
+  height: 500px;
+  border-radius: 20px;
+  background-color: var(--teal);
+  padding: 20px;
+  margin: 100px auto;
+  text-align: center;
+}
+
+.welcome {
+  margin: 50px 0;
+  font-size: 2.5em;
+}
+
+.options {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  margin-top: 20px;
+}
+
+p {
+  font-size: 1.6em;
+  padding: 10px;
+  margin-bottom: 50px;
+}
+
+h3 {
+  margin: 0;
+}
+
+/* Login and Sign up Pages */
+
+.accessForm {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 30px auto;
+}
+
+.accessForm > input[type=submit] {
+  width: 100px;
+  margin: 20px auto;
+  font-size: 1.2em;
+}
+
+.input-field {
+  margin: 15px;
+}
+
+.validate {
+  border-radius: 20px;
+  padding: 7px;
+  width: 100%;
+}
+
+.validate:focus{
+  border: 2px solid var(--soft-purple) ;
+  border-radius: 20px;
+
+}
+
+
+
+
+.accessLabels {
+  padding: 25px;
+  margin: 10px;
+  font-size: 1.5em;
+}
+
+.linkBtns {
+  border-radius: 20px;
+  width: 100px;
+  margin: 0 40px;
+  padding: 5px;
+  background-color: var(--soft-purple) ;
+}
+
+.linkBtns:hover {
+
+}
 
 
 /* index.ejs styles */
@@ -23,17 +118,19 @@ body {
   border-radius: 360px;
   margin: 5px;
   padding: 7px 10px;
+  background-color: var(--soft-purple) ;
+  color: white;
 }
 
 /* new.ejs styles */
 .foodSearchModal {
-  /* display: none; */
+  display: none;
 }
 
 /* Modal Styles */
 
 .foodSearchBoxArea {
-  background: rgba(130,201,201,.8);
+  background: var(--teal);
   position: fixed;
   top: 100px;
   left: 20px;
@@ -63,7 +160,7 @@ body {
   margin: 15px;
   overflow: scroll;
   overflow-x: hidden;
-  background-color: rgba(255,255,255,.5);
+  background-color: var(--soft-orange);
 }
 
 #itemHeader {
@@ -164,9 +261,9 @@ a {
   cursor: pointer;
 }
 
-label {
+/* label {
   width: 150px;
-}
+} */
 
 
 .fodmapDetails {

@@ -4,24 +4,30 @@
     <% include ../partials/head.ejs %>
   </head>
     <body>
-      <div class="container">
+      <div class="accesContainer">
         <h1>Log In</h1>
         <div class="row">
-          <form class="col s12" action="/sessions" method="post">
+          <form class="accessForm" action="/sessions" method="post">
             <div class="row">
-              <div class="input-field col s6">
+              <div class="input-field">
+                <label class='accessLabels' for="username" >User Name</label><br/>
                 <input  id="username" type="text" class="validate" name="username" required>
-                <label for="username">User Name</label>
+
               </div>
             </div>
             <div class="row">
-              <div class="input-field col s12">
+              <div class="input-field">
+                <label class='accessLabels' for="password" >Password</label><br/>
                 <input id="password" type="password" class="validate" name="password" required>
-                <label for="password">Password</label>
+
               </div>
             </div>
-            <input type="submit" name="" value="Log In">
+            <input type="submit" name="" value="Log In" class='pageBtns verify'>
           </form>
         </div>
+        <div class="">
+          <h3>Need to sign up?</h3><a href="../users/newuser">Sign Up</a>
+        </div>
+      </div>
     </body>
 </html>

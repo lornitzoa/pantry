@@ -6,6 +6,9 @@ const app = express();
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const session = require('express-session')
+const MongoDBStore = require('connect-mongodb-session')(session);
+
+app.use(express.static('public'));
 
 //Configuration
 const PORT = process.env.PORT || 3000;
@@ -17,11 +20,30 @@ app.use(methodOverride('_method'));
 app.use(express.urlencoded({ extended: false }))
 
 // configure sessions
+const store = new MongoDBStore({
+  uri: 'mongodb://localhost:27017/sessionInfo',
+  collection: 'pantry'
+})
+
+store.on('error', (err) => {
+  console.log(err);
+})
+
 app.use(session({
   secret: process.env.SECRET,
-  resave: false,
-  saveUninitialized: false
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
+  },
+  store: store,
+  resave: true,
+  saveUninitialized: true
 }))
+
+// app.use(session({
+//   secret: process.env.SECRET,
+//   resave: false,
+//   saveUninitialized: false
+// }))
 
 // Database
 mongoose.connect(mongoURI, { useNewUrlParser: true })

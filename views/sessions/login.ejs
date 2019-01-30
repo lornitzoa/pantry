@@ -2,15 +2,18 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-
+    <% include ../partials/head.ejs %>
   </head>
   <body>
-    <div class="container">
-        <h1>Welcome</h1>
-        <h2>Please</h2>
-        <a href="/users/newuser" class="waves-effect waves-light btn">Sign Up</a>
-        <h3>or</h3>
-        <a href="/sessions/newsessions" class="waves-effect waves-light btn">Log In</a>
+    <div class="welcomeContainer">
+        <h1 class='welcome'>Welcome to The Pantry</h1>
+        <p>A place to collect, share and find data on foods you eat every day</p>
+        <div class="options">
+          <a href="/users/newuser" class="linkBtns">Sign Up</a>
+          <h3>or</h3>
+          <a href="/sessions/newsessions" class="linkBtns">Log In</a>
+        </div>
+
     </div>
   </body>
 </html>
