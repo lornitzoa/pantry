@@ -1,14 +1,11 @@
-// from auth lesson on w06d05
-
+const bcrypt = require('bcrypt')
 const express = require('express')
 const sessions = express.Router()
 const User = require('../models/users.js')
-const bcrypt = require('bcrypt')
-const session = require('express-session');
 
 // log in form
 sessions.get('/newsessions', (req, res) => {
-  res.render('./sessions/newsession.ejs')
+  res.render('sessions/newsession.ejs')
 })
 
 // create a new session
@@ -18,7 +15,7 @@ sessions.post('/', (req, res) => {
       res.send('user not found!')
       // console.log(req.body.password, foundUser)
       // from input in browser === found from database
-    } else if (req.body.password === foundUser.password) {
+    } else if (bcrypt.compareSync(req.body.password, foundUser.password)) {
       if (err) console.log(err)
       req.session.currentUser = foundUser
       res.redirect('/pantry')
@@ -28,11 +25,11 @@ sessions.post('/', (req, res) => {
   })
 })
 
-// saves session user to pass to any template
-// support from https://stackoverflow.com/questions/37183766/how-to-get-the-session-value-in-ejs
-sessions.use((req,res,next) => {
-  res.locals.user = req.user;
-  next()
+// destroy the session
+sessions.delete('/', (req, res) => {
+  req.session.destroy(() => {
+    res.redirect('/')
+  })
 })
 
 module.exports = sessions

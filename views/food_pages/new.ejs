@@ -7,6 +7,7 @@
   </head>
   <body>
     <% include ../partials/nav.ejs %>
+    <h1><%= user.username%> </h1>
     <h1>Add Food Item</h1>
     <button type="button" id='btnAddFromAPI' class='pageBtns'>Search API for food</button>
     <form action="/pantry" method="POST">
