@@ -1,10 +1,162 @@
+
+
+/* shared styles */
 body {
-  background: blue;
+    background-color: rgba(11, 54, 210, 0.69);
 }
 
-.foodSearchModal {
-  display: none;
+
+
+/* index.ejs styles */
+.item {
+  display: flex;
 }
+
+.itemLabel {
+  width: 300px;
+  padding: 5px;
+  margin: 5px;
+
+}
+
+.pageBtns {
+  border-radius: 360px;
+  margin: 5px;
+  padding: 7px 10px;
+}
+
+/* new.ejs styles */
+.foodSearchModal {
+  /* display: none; */
+}
+
+/* Modal Styles */
+
+.foodSearchBoxArea {
+  background: rgba(130,201,201,.8);
+  position: fixed;
+  top: 100px;
+  left: 20px;
+  overflow: auto;
+  /* resize: both; */
+  width: 90%;
+  max-width: 925px;
+  height: 70%;
+  border-radius: 20px;
+}
+
+.foodSearch {
+  margin: 15px;
+}
+
+/* input[type=text] {
+  width: 200px;
+} */
+
+.searchResults {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  height: 75%;
+  border: solid grey 1px;
+  border-radius: 5px;
+  margin: 15px;
+  overflow: scroll;
+  overflow-x: hidden;
+  background-color: rgba(255,255,255,.5);
+}
+
+#itemHeader {
+  width:250px;
+  padding-left: 100px;
+
+}
+
+.resultsList {
+  /* margin-top: 25px; */
+  width: 100%;
+}
+
+.wrapperDiv {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2px;
+}
+
+.resultHeaders {
+  /* width: inherit; */
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  /* z-index: 10; */
+}
+
+span {
+  width: 25px;
+  /* border: solid gold 1px; */
+}
+
+.btnDiv {
+  width: 35px;
+}
+
+.itemDiv {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  display: flex;
+
+}
+
+.itemName {
+  margin: 3px;
+}
+
+.servingDiv {
+  display: flex;
+  width: 75px;
+
+
+}
+
+.servingV {
+  margin: 0;
+
+  /* padding: 3px; */
+}
+
+.nutrientHead {
+  display: flex;
+}
+
+.nutrientDiv {
+  display: flex;
+  display: flex;
+
+}
+
+.nutrient {
+  width: 50px;
+  margin: 0;
+
+  padding: 3px;
+  text-align: center;
+}
+
+/* .item {
+  width: 300px;
+  margin: 0;
+
+}
+
+.mealItemDiv  > .item {
+  width: 250px;
+} */
+
+
+/* shared */
 
 a {
   text-decoration: none;
@@ -12,9 +164,6 @@ a {
   cursor: pointer;
 }
 
-/* .mainDetails {
-  display: flex;
-} */
 label {
   width: 150px;
 }
@@ -44,6 +193,6 @@ h5 {
   width: 100px;
 }
 
-.serving {
+#serving {
   width: 57px;
 }

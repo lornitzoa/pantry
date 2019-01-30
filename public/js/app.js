@@ -12,25 +12,31 @@ $(() => {
  }
 
   const addToDB = (e) => {
-    let $info = $(e.target).siblings().eq(0).children()
-    // addToInputs()
-    for(let i = 0; i < $info.length; i++) {
-      let detail = $($info[i])
-      addToInputs(detail)
+    let $info = $(e.target).parents().eq(1).children()
+    for(let i = 1; i < $info.length; i++) {
+      // console.log($($info[i]).children());
+      // console.log($($info[i]).length);
+      let $detailsDivs = $($info[i]).children()
+      // console.log($detailsDivs.length);
+      for(let x = 0; x < $detailsDivs.length; x++) {
+        // console.log($($detailsDivs[x]).attr('id'));
+        // console.log($($detailsDivs[x]).text());
+        addToInputs($detailsDivs[x])
+      }
     }
   }
 
   const addToInputs = (detail) => {
-    let inputs = $('.inputs').children()
+    let inputs = $('.mainDetails').children()
     for(let i = 0; i < inputs.length; i++) {
-      // console.log($(inputs[i]).attr('class'));
-      // console.log('input form: ' + $(inputs[i]).attr('class'));
-      // console.log(('selected item: ' + $(detail).attr('class')));
-      if ($(inputs[i]).attr('class') === $(detail).attr('class')) {
+      let inputBox = $(inputs[i])//.attr('class');
+      let selectedItem = $(detail).attr('id');
+      // console.log(inputBox);
+      // console.log(selectedItem);
+      if ($(inputs[i]).attr('class') == $(detail).attr('id')) {
         $(inputs[i]).val($(detail).text());
       }
     }
-
   }
 
 
@@ -51,12 +57,12 @@ $(() => {
      }
      // console.log($fodmapsObj);
      $fodmapsReStrung.push($fodmapsObj)
-     console.log($fodmapsReStrung);
+     // console.log($fodmapsReStrung);
    }
 
  });
 
- $('.btnAddFromAPI').on('click', openFoodSearchModal);
+ $('#btnAddFromAPI').on('click', openFoodSearchModal);
 
  $('#btnCloseSearchModal').on('click', closeFoodSearchModal);
 
@@ -72,45 +78,57 @@ $(() => {
       }
     ).then(
       (data) => {
-        console.log(data);
+        // console.log(data);
         for(let i = 0; i < data.hits.length; i++) {
-
+          // create containing divs for item details to assist with formatting
           let $itemWrapper = $('<div>').addClass('wrapperDiv');
-          let $btnAddItem = $('<button>').text('+');
+          let $btnDiv = $('<div>').addClass('btnDiv')
+          let $btnAddItem = $('<button>').text('+').addClass('pageBtns');
           let $ddItemDiv = $('<div>').addClass('itemDiv');
+          let $ddServingVDiv = $('<div>').addClass('servingDiv');
+          let $ddNutrientDiv = $('<div>').addClass('nutrientDiv')
           // let $ddNutrientDiv = $('<div>').addClass('nutrientDiv');
-          let $ddItemName = $('<dd>').text(data.hits[i].fields.item_name).addClass('name');
-          let $ddBrand = $('<dd>').text(data.hits[i].fields.brand_name).addClass('brand');
-          let $ddServQty = $('<dd>').text(data.hits[i].fields.nf_serving_size_qty).addClass('servingSizeQty');
-          let $ddServUn = $('<dd>').text(data.hits[i].fields.nf_serving_size_unit).addClass('servingSizeUn');
-          let $ddServGram = $('<dd>').text(data.hits[i].fields.nf_serving_weight_grams).addClass('servingWeight');
-          let $ddTotCal = $('<dd>').text(data.hits[i].fields.nf_calories).addClass('calories');
-          let $ddProtien = $('<dd>').text(data.hits[i].fields.nf_protein).addClass('protein');
-          let $ddCarbs = $('<dd>').text(data.hits[i].fields.nf_total_carbohydrate).addClass('carbs');
-          let $ddFat = $('<dd>').text(data.hits[i].fields.nf_total_fat).addClass('fat');
-          let $ddFiber = $('<dd>').text(data.hits[i].fields.nf_dietary_fiber).addClass('fiber');
-          let $ddSugars = $('<dd>').text(data.hits[i].fields.nf_sugars).addClass('sugar');
+          // create dds for item details and add classes and ids
+          let $ddItemName = $('<dd>').text(data.hits[i].fields.item_name).attr('id','name').addClass('itemName');
+          let $ddBrand = $('<dd>').text(data.hits[i].fields.brand_name).attr('id','brand').addClass('itemName');
+          let $ddServQty = $('<dd>').text(data.hits[i].fields.nf_serving_size_qty).attr('id','servingSizeQty').addClass('servingV');
+          let $ddServUn = $('<dd>').text(data.hits[i].fields.nf_serving_size_unit).attr('id','servingSizeUn').addClass('servingV');
+          let $ddServGram = $('<dd>').text(data.hits[i].fields.nf_serving_weight_grams).attr('id','servingWeight').addClass('nutrient');
+          let $ddTotCal = $('<dd>').text(data.hits[i].fields.nf_calories).attr('id','calories').addClass('nutrient');
+          let $ddProtien = $('<dd>').text(data.hits[i].fields.nf_protein).attr('id','protein').addClass('nutrient');
+          let $ddCarbs = $('<dd>').text(data.hits[i].fields.nf_total_carbohydrate).attr('id','carbs').addClass('nutrient');
+          let $ddFat = $('<dd>').text(data.hits[i].fields.nf_total_fat).attr('id','fat').addClass('nutrient');
+          let $ddFiber = $('<dd>').text(data.hits[i].fields.nf_dietary_fiber).attr('id','fiber').addClass('nutrient');
+          let $ddSugars = $('<dd>').text(data.hits[i].fields.nf_sugars).attr('id','sugar').addClass('nutrient');
 
-
+          // add item name info to item div
           $($ddItemDiv).append($ddItemName);
           $($ddItemDiv).append($ddBrand);
-          $($ddItemDiv).append($ddServQty);
-          $($ddItemDiv).append($ddServUn);
-          $($ddItemDiv).append($ddServGram);
-          $($ddItemDiv).append($ddTotCal);
-          $($ddItemDiv).append($ddProtien);
-          $($ddItemDiv).append($ddCarbs);
-          $($ddItemDiv).append($ddFat);
-          $($ddItemDiv).append($ddFiber);
-          $($ddItemDiv).append($ddSugars);
-
+          // add serving volume info to serving div
+          $($ddServingVDiv).append($ddServQty);
+          $($ddServingVDiv).append($ddServUn);
+          // add everything else including serving weight to nutrient div
+          $($ddNutrientDiv).append($ddServGram);
+          $($ddNutrientDiv).append($ddTotCal);
+          $($ddNutrientDiv).append($ddProtien);
+          $($ddNutrientDiv).append($ddCarbs);
+          $($ddNutrientDiv).append($ddFat);
+          $($ddNutrientDiv).append($ddFiber);
+          $($ddNutrientDiv).append($ddSugars);
+          //add button to button div
+          $($btnDiv).append($btnAddItem)
           // add button to item wrapper
-          $($itemWrapper).append($btnAddItem);
+          $($itemWrapper).append($btnDiv);
           // add item div to wrapper
           $($itemWrapper).append($ddItemDiv);
+          // add serving div to wrapper
+          $($itemWrapper).append($ddServingVDiv);
+          // add nutrient div to wrapper
+          $($itemWrapper).append($ddNutrientDiv);
           // add item wrapper to dl resultsList
           $('dl').append($itemWrapper);
 
+          // add event listener to add button
           $($btnAddItem).on('click', addToDB)
 
         }

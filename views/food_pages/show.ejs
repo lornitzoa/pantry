@@ -9,7 +9,6 @@
     <% include ../partials/nav.ejs %>
     <h1><%=item.name%></h1>
     <div class="mainDetails">
-      <h5 for="">Name</h5><lable><%=item.name%></label><br/>
       <h5 for="">Brand</h5><lable><%=item.brand%></label><br/>
       <h5 for="">Serving Size</h5><lable class="servingSizeQty serving"><%=item.servingSizeQty%></label>
         <lable class="servingSizeQty serving"><%=item.servingSizeUn%></label><br/>
@@ -50,6 +49,6 @@
         </div>
         <% } %>
     </div>
-
+    <button class='pageBtns' onclick='window.location.href="/pantry/<%=item.id%>/edit"'>Edit</button>
   </body>
 </html>
