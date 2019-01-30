@@ -36,9 +36,7 @@
           <% let fodmaps = item.fodmaps %>
           <% for (let i = 0; i < fodmaps.length; i++) { %>
             <div class="fodmapDetails">
-
               <% for(let key in fodmaps[i]) { %>
-
                 <% let servingSizeW = 'servingSizeW' + (i+1).toString() %>
                 <% let servingSizeV = 'servingSizeV' + (i+1).toString() %>
                 <% if(key === servingSizeW || key === servingSizeV) { %>

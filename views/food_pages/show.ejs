@@ -34,11 +34,21 @@
       <% let fodmaps = item.fodmaps %>
       <% for (let i = 0; i < fodmaps.length; i++) { %>
         <div class="fodmapDetails">
+
           <% for(let key in fodmaps[i]) { %>
-            <label for=""><%=fodmaps[i][key]%></label>
+
+            <% let servingSizeW = 'servingSizeW' + (i+1).toString() %>
+            <% let servingSizeV = 'servingSizeV' + (i+1).toString() %>
+            <% if(key === servingSizeW || key === servingSizeV) { %>
+              <h5 class="fodmapInput  fmpUnits"><%=fodmaps[i][key]%></h5>
+
+              <% } else { %>
+                <h5 class="fodmapInput fmpType"><%=fodmaps[i][key]%></h5>
+
+            <% } %>
           <% } %>
         </div>
-      <% } %>
+        <% } %>
     </div>
 
   </body>
