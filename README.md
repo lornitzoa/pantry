@@ -16,18 +16,21 @@ I used header and nav partials for this project to have standard html elements u
 #### Learning to use connect-mongodb-session
 I wanted to keep a user logged in for a period of time if they didn't log out before closing the window or browser. In part, I just didn't want to keep logging in every time I restarted the server, but I wanted to know how to do this anyway. Karolin directed me to some helpful information that got me headed in the right direction and after tearing down all sessions functions and rebuilding I got it working. I did miss a hard coded uri link to the local database which prevented Heroku from deploying correctly. Dan Lawrence assisted with finding this and helping me correct the assignment of the uri.
 
-#### Using dotenv with heroku
-I had to do some digging to figure out that I had to set configurations in the app on Heroku. **Which I just found at the bottom of the heroku setup mark down**
-
 #### Creating New Repository and Heroku App Last Minute
-In a near-last ditch effort to get my app to deploy through Heroku I created a new repository and new Heroku app. Which of course was a waste of time, but it at least gave me a little more practice in creating new repositories and connecting them to Heroku.
+In a near-last ditch effort to get my app to deploy through Heroku I created a new repository and new Heroku app. Which of course was a waste of time, but it at least gave me a little more practice in creating new repositories and connecting them to Heroku. Once I figured everything out I wanted to retain all of my original commits so I moved everything back to the original repository folders. This was a good lesson in removing a heroku remote setup as well as doing a force push.
 
 #### COMMENTING MY CODE!
 I still failed to properly comment my code. I am disinclined to comment my code when I am working on just getting a piece functional, and then I'm so excited when I get it working that I move on to the next piece.
 
-## Future Development
-Begin incorporating the functionality of this application with that of my Unit 1 project.
-Get a better API for my food search.
+## Lacking Features and Future Development
+#### CSS
+I did not put a lot of time into making this particularly responsive. This is something I would like to improve on.
+
+#### API
+I would like to find a better API for food data.
+
+#### Integration with Unit 1 App
+Either as a final project for this course or after graduation I would like to integrate the features of this Unit 2 project with that of my Unit 1 project. 
 
 ## Resources
 - I depended heavily on the markdowns from Unit 2 classes to help me get through this project and used far fewer resources from research on the internet to solve problems.
@@ -35,3 +38,5 @@ Get a better API for my food search.
 - Karolin Rafalski supported me in finding resources to save session data to mongoDB with this link: https://www.npmjs.com/package/connect-mongodb-session
 - Setting config vars in Heroku app: https://devcenter.heroku.com/articles/config-vars
 - Dan Lawrence assisted with troubleshooting Heroku connection when using connect-mongodb-session
+- Heroku force push: https://evilmartians.com/chronicles/git-push---force-and-how-to-deal-with-it
+- Remove heroku connection from respository: https://www.kevinleary.net/git-remotes-existing-heroku-app/
