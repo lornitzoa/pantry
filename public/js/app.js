@@ -78,6 +78,7 @@ $('#btnClearSearch').on('click',clearSearchResults)
   // entire form on submit event listener taken from my unit 1 nutrition app
   $('#searchItems').on('submit', (e) => {
     e.preventDefault();
+    clearSearchResults();
     let searchItem = $('input[type=text]').val();
     $.ajax(
       {
