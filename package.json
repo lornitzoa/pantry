@@ -1,5 +1,5 @@
 {
-  "name": "nutritioncrud",
+  "name": "fodmappantry",
   "version": "1.0.0",
   "engines": {
     "node": "11.4.0"
@@ -19,6 +19,7 @@
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
+    "heroku-dotenv": "^0.4.1",
     "method-override": "^3.0.0",
     "mongoose": "^5.4.6"
   }

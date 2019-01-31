@@ -1,4 +1,11 @@
 <nav>
+
   <h1><a class='homeLink' href="/pantry">Pantry</a></h1>
-  <h1><%= user.username%> </h1>
+  <div class="account">
+    <h1 class='navOpts'><a href="https://lornitzoa.github.io/projects/nutritionApp/index.html"><%= user.username%></a>   </h1>
+    <form  action="/sessions?_method=DELETE" method="post">
+      <h1 class='navOpts'><input class="pageBtns" id='logout' type="submit" name="" value="Log Out"></h1>
+    </form>
+  </div>
+
 </nav>

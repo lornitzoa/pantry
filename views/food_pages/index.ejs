@@ -7,20 +7,20 @@
   </head>
   <body>
     <% include ../partials/nav.ejs %>
-    <form  action="/sessions?_method=DELETE" method="post">
-      <h1><input type="submit" name="" value="Log Out"></h1>
-    </form>
-    <h1>Welcome</h1>
-    <button class='pageBtns' type="button" name="btnAddManually" onclick='window.location.href="/pantry/new"'>Add Item</button>
+
     <div class="itemsList">
+      <button class='pageBtns' type="button" name="btnAddManually" onclick='window.location.href="/pantry/new"'>Add Item</button>
       <% for(let i = 0; i < items.length; i++) { %>
-          <div class="itemDiv">
+          <div class="listItemDiv">
             <div class="item">
               <a class='itemLabel' href="/pantry/<%=items[i].id%>/show"><%=items[i].name%></a>
               <form action="./<%=items[i].id%>?_method=DELETE" method="POST">
                 <input class='pageBtns'  type="submit" name="" value="X">
               </form>
-              <button class='pageBtns' type="button" name="btnEdit" onclick='window.location.href="/pantry/<%=items[i].id%>/edit"'>Edit</button>
+              <form class="" action="/pantry/<%=items[i].id%>/edit" method="GET">
+                <input type="submit" name="btnEdit" value="Edit" class="pageBtns">
+              </form>
+              <!-- <button class='pageBtns' type="button" name="btnEdit" onclick='window.location.href="/pantry/<%=items[i].id%>/edit"'>Edit</button> -->
             </div>
           </div>
       <% } %>

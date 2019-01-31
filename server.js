@@ -12,7 +12,7 @@ app.use(express.static('public'));
 
 //Configuration
 const PORT = process.env.PORT || 3000;
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/pantry'
+const MONGODB_URI = process.env.MONGODB_URI
 
 // Middleware
 app.use(express.urlencoded({extended:false}));
@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: false }))
 
 // configure sessions
 const store = new MongoDBStore({
-  uri: 'mongodb://localhost:27017/sessionInfo',
+  uri: process.env.MONGODB_URI || 'mongodb://localhost:27017/sessionInfo',
   collection: 'pantry'
 })
 
@@ -49,9 +49,9 @@ app.use(session({
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
 
 
-db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
-db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
-db.on('disconnected', () => console.log('mongo disconnected'));
+// db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
+// db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
+// db.on('disconnected', () => console.log('mongo disconnected'));
 
 
 mongoose.connection.once('open', () => {

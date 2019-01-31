@@ -7,26 +7,26 @@
   </head>
   <body>
     <% include ../partials/nav.ejs %>
-    <h1>Add Food Item</h1>
+    <h1>Add Item</h1>
     <button type="button" id='btnAddFromAPI' class='pageBtns'>Search API for food</button>
-    <form action="/pantry" method="POST">
-      <h2>Basic Nutritional Info</h2>
+    <h2>Basic Nutritional Info</h2>
+    <form action="/pantry" method="POST" id='itemFrame'>
       <div class="inputs">
         <div class="mainDetails">
-          <h5 for="">Name</h5><input type="text" name="name"  class="name"/><br/>
-          <h5 for="">Brand</h5><input type="text" name="brand"  class="brand"/><br/>
+          <h5 for="">Name</h5><input type="text" name="name"  class="name detail" /><br/>
+          <h5 for="">Brand</h5><input type="text" name="brand"  class="brand detail" /><br/>
           <h5 for="">Serving Size</h5><input type="text" name="servingSizeQty"  class="servingSizeQty" id='serving'/>
             <input type="text" name="servingSizeUn"  class="servingSizeUn" id='serving'/><br/>
-          <h5 for="">Serving Weight (grams)</h5><input type="text" name="servingWeight"  class="servingWeight"/><br/>
-          <h5 for="">Calories</h5><input type="text" name="calories"  class="calories"/><br/>
-          <h5 for="">Fat</h5><input type="text" name="fat"  class="fat"/><br/>
-          <h5 for="">Carbs</h5><input type="text" name="carbs"  class="carbs"/><br/>
-          <h5 for="">Fiber</h5><input type="text" name="fiber"  class="fiber"/><br/>
-          <h5 for="">Sugar</h5><input type="text" name="sugar"  class="sugar"/><br/>
-          <h5 for="">Protein</h5><input type="text" name="protein"  class="protein"/><br/>
+          <h5 for="">Serving Weight (grams)</h5><input type="text" name="servingWeight"  class="servingWeight detail"/><br/>
+          <h5 for="">Calories</h5><input type="text" name="calories"  class="calories detail" /><br/>
+          <h5 for="">Fat</h5><input type="text" name="fat"  class="fat detail" /><br/>
+          <h5 for="">Carbs</h5><input type="text" name="carbs"  class="carbs detail" /><br/>
+          <h5 for="">Fiber</h5><input type="text" name="fiber"  class="fiber detail" /><br/>
+          <h5 for="">Sugar</h5><input type="text" name="sugar"  class="sugar detail" /><br/>
+          <h5 for="">Protein</h5><input type="text" name="protein"  class="protein detail" /><br/>
         </div>
-        <h2>FODMAP Data</h2>
         <div class="fodmapContainer">
+          <h2>FODMAP Data</h2>
           <div class="fodmapDetails">
             <h4 class="fodmapInput fmpUnits fmpHeaders">Serving Size Weight</h4>
             <h4 class="fodmapInput fmpUnits fmpHeaders">Serving Size Volume</h4>
@@ -126,7 +126,7 @@
     <div class="foodSearchModal">
       <div class="foodSearchBoxArea">
         <form class="foodSearch"  id='searchItems'>
-          <input type="text" value="wine">
+          <input type="text" value="">
           <input type="submit" value='Search' class='pageBtns'>
           <button type="button" id='btnCloseSearchModal' class='pageBtns'>Close</button>
           <button type="button" id='btnClearSearch' class='pageBtns'>Clear</button>
