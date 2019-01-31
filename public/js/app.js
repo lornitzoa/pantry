@@ -8,7 +8,7 @@ $(() => {
 
  const closeFoodSearchModal = () => {
    $('.foodSearchModal').css('display', 'none');
-   // clearSearchResults();
+   clearSearchResults();
  }
 
   const addToDB = (e) => {
@@ -62,9 +62,18 @@ $(() => {
 
  });
 
+ const clearSearchResults = () => {
+  let $listItemsArr = $('.resultsList').children()
+  for(let i = 1; i < $listItemsArr.length; i++) {
+    $listItemsArr[i].remove();
+  }
+}
+
  $('#btnAddFromAPI').on('click', openFoodSearchModal);
 
  $('#btnCloseSearchModal').on('click', closeFoodSearchModal);
+
+$('#btnClearSearch').on('click',clearSearchResults)
 
   // entire form on submit event listener taken from my unit 1 nutrition app
   $('#searchItems').on('submit', (e) => {
