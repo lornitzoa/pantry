@@ -42,11 +42,12 @@
                 <% if(key === servingSizeW || key === servingSizeV) { %>
                   <input type="text" name="<%=key%>" value="<%=fodmaps[i][key]%>" class="fodmapInput  fmpUnits">
                   <% } else { %>
-                    <select  name="<%=key%>" selected='<%=fodmaps[i][key]%>' class="fodmapInput fmpType">
+
+                    <select  name="<%=key%>" class="fodmapInput fmpType">
                       <option value=""></option>
-                      <option value="low">Low</option>
-                      <option value="Medium">Medium</option>
-                      <option value="High">High</option>
+                      <option value="Low" <% if(fodmaps[i][key] === 'Low') { %> selected <% }%> >Low</option>
+                      <option value="Medium" <% if(fodmaps[i][key] === 'Medium') { %> selected <% } %> >Medium</option>
+                      <option value="High" <% if(fodmaps[i][key] === 'High') { %> selected <% } %> >High</option>
                     </select>
                 <% } %>
               <% } %>
